@@ -10,6 +10,7 @@ export default (state = {}, action) => {
         brand: brand,
         alcoholContent: alcoholContent,
         price: price,
+        keg: 124,
         id: id
       }
     });

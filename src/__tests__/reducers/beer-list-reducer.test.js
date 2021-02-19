@@ -10,6 +10,7 @@ describe('beerListReducer', () => {
       brand: 'Porter',
       alcoholContent: '5',
       price: '$5',
+      keg: 124,
       id: 1 
      },
        2: {
@@ -34,6 +35,7 @@ describe('beerListReducer', () => {
       brand: brand,
       alcoholContent: alcoholContent,
       price: price,
+      keg: 124,
       id: id
     };
     
@@ -43,6 +45,7 @@ describe('beerListReducer', () => {
         brand: brand,
         alcoholContent: alcoholContent,
         price: price,
+        keg: 124,
         id: id
       }
     });
@@ -59,6 +62,7 @@ describe('beerListReducer', () => {
         brand: 'Pilsner',
         alcoholContent: '8',
         price: '$9',
+        keg: 124,
         id: 2 
       }
     });

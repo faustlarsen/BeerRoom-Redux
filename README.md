@@ -9,7 +9,7 @@
 
 ## Description
 
-_A web app that allows a bar to keep track of pints of beer. There were used functional and class compontents, local and shared state, props and PropTypes._
+_A web app with Redux that allows a bar to keep track of pints of beer. There were used functional and class compontents, local and shared state, props and PropTypes._
 
 
 ### SPECS:
@@ -25,9 +25,9 @@ _A web app that allows a bar to keep track of pints of beer. There were used fun
 
 ## Setup/Installation Requirements
 
-* Clone this repository using the command `https://github.com/faustlarsen/beer-room.git`
+* Clone this repository using the command `https://github.com/faustlarsen/BeerRoom-Redux.git.git`
 
-* `cd beer-room` to get into main directory
+* `cd BeerRoom-Redux` to get into main directory
 
 * `npm install` to install dependencies
 

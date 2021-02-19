@@ -12,7 +12,6 @@ function BeerDetails(props) {
       <h5 style={{color: '#010104'}}>Brand: {beer.brand}</h5>
       <h5 style={{color: '#010104'}}>Alcohol Content: {beer.alcoholContent}%</h5>
       <h5 style={{color: '#010104'}}>Price: ${beer.price}</h5>
-   
     {beer.keg === 0 ?
       <h5 style={{color: '#010104'}}>Out of Stock</h5> : 
       <h5 style={{color: '#010104'}}>Pints left: {beer.keg}</h5>
@@ -26,6 +25,7 @@ function BeerDetails(props) {
   </React.Fragment>
   );
 }
+
 
 BeerDetails.protoTypes = {
   beer: PropTypes.object,

@@ -13,7 +13,7 @@ function NewBeerForm(props) {
       price:  parseInt(event.target.price.value),
       keg: 124,
       id: v4()
-    });
+    }); 
   };
 
   return(

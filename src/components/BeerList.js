@@ -11,7 +11,7 @@ function BeerList(props) {
           <div className="col mb-4">
             <div className = "card shadow-lg text-canter">
               <Beer 
-                whenBeerClicked = {props.onBeerSelection} 
+             whenBeerClicked = {props.onBeerSelection} 
                 name={beer.name}
                 brand={beer.brand}
                 alcoholContent={beer.alcoholContent}
