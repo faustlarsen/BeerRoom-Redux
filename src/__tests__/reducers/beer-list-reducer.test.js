@@ -18,6 +18,7 @@ describe('beerListReducer', () => {
        brand: 'Pilsner',
        alcoholContent: '8',
        price: '$9',
+       keg: 124,
        id: 2 
      } 
   };

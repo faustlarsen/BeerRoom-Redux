@@ -68,7 +68,7 @@ handleDeletingBeer = (id) => {
   this.setState({selectedBeer: null});
 }
  
-//buy
+buy
 handleBuyClick = (id) => {
   const beerToBuy = this.state.masterBeerList.filter(
   beer => beer.id === this.state.selectedBeer.id)[0];
@@ -82,7 +82,6 @@ handleBuyClick = (id) => {
     editing: false,
   });
 }
-
 
 render(){
   let buttonText = null;
