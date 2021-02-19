@@ -3,7 +3,8 @@ import BeerList from "./BeerList";
 import NewBeerForm from "./NewBeerForm";
 import BeerDetails from "./BeerDetails";
 import EditBeerForm from './EditBeerForm';
-// import Button from "react-bootstrap/Button";
+import { connect } from 'react-redux';
+
 
 class BeerControl extends React.Component {
   constructor(props) {
@@ -125,5 +126,7 @@ render(){
     );
   }
 }
+
+BeerControl = connect()(BeerControl);
 
 export default BeerControl;
