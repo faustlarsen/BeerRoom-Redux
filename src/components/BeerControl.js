@@ -6,7 +6,6 @@ import EditBeerForm from './EditBeerForm';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 
-
 class BeerControl extends React.Component {
   constructor(props) {
     super(props);
@@ -113,7 +112,7 @@ render(){
     buttonText = "Beer List";
   } 
 
-  else if (this.state.selectedBeer != null) {
+else if (this.state.selectedBeer != null) {
       currentlyVisibleState =
       <BeerDetails
         beer = {this.state.selectedBeer}
@@ -128,8 +127,9 @@ render(){
       buttonText = "Beer List";
       
     } else { 
-     currentlyVisibleState = <BeerList beerList={this.props.masterBeerList} onBeerSelection={this.handleChangingSelectedBeer} />;
+      currentlyVisibleState = <BeerList beerList={this.props.masterBeerList} onBeerSelection={this.handleChangingSelectedBeer} />;
      buttonText = "Add Beer";
+    }
     return (
       <React.Fragment>
       {currentlyVisibleState}

@@ -7,7 +7,7 @@ function BeerList(props) {
     <React.Fragment>
       <div className="container">
         <div className="p-4 w-50 mx-auto" >
-        {props.beerList.map((beer) =>
+        {Object.values(props.beerList).map((beer) =>
           <div className="col mb-4">
             <div className = "card shadow-lg text-canter">
               <Beer 
@@ -30,7 +30,7 @@ function BeerList(props) {
 }
 
 BeerList.propTypes = {
-  beerList: PropTypes.array,
+  beerList: PropTypes.object,
   onBeerSelection: PropTypes.func
 }
 
