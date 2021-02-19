@@ -33,11 +33,12 @@ showFormOnClick = () => {
 //create
 handleAddingNewBeerToList = (newBeer) => {
   const { dispatch } = this.props;
-  const { id, name, alcoholContent, price } = newBeer;
+  const { id, name, brand, alcoholContent, price } = newBeer;
   const action = {
     type: 'ADD_BEER',
     id: id,
     name: name,
+    brand: brand,
     alcoholContent: alcoholContent,
     price: price,
   }
@@ -61,11 +62,12 @@ handleEditClick = () => {
 
 handleEditingBeerInList = (beerToEdit) => {
   const { dispatch } = this.props;
-  const { id, name, alcoholContent, price } = beerToEdit;
+  const { id, name, brand, alcoholContent, price } = beerToEdit;
   const action = {
     type: 'ADD_BEER',
     id: id,
     name: name,
+    brand: brand,
     alcoholContent: alcoholContent,
     price: price,
   }
@@ -143,7 +145,8 @@ else if (this.state.selectedBeer != null) {
 }
 
 BeerControl.propTypes = {
-  masterBeerList: PropTypes.object
+  masterBeerList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool
 };
 
 const mapStateToProps = state => {
