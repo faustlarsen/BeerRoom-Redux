@@ -35,5 +35,11 @@ describe("rootReducer", () => {
     expect(store.getState().masterBeerList).toEqual(beerListReducer(undefined, action));
   });
   
- 
+  test('Check that TOGGLE_FORM action works for formVisibleReducer and root reducer', () => {
+    const action = {
+      type: 'TOGGLE_FORM'
+    }
+    store.dispatch(action);
+    expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
+  });
 });
