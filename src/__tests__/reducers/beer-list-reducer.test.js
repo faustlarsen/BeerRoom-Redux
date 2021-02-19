@@ -4,12 +4,26 @@ describe('beerListReducer', () => {
 
   let action;
   const beerData = {
-    name: 'The Beer',
-    brand: 'Porter',
-    alcoholContent: '5',
-    price: '$5',
-    id: 1 
+    1: {
+      name: 'The Beer',
+      brand: 'Porter',
+      alcoholContent: '5',
+      price: '$5',
+      id: 1 
+     },
+       2: {
+       name: 'Another Beer',
+       brand: 'Pilsner',
+       alcoholContent: '8',
+       price: '$9',
+       id: 2 
+     } 
   };
+
+  test('Should return default state if there is no action type passed into the reducer', () => {
+    expect(beerListReducer({}, { type: null })).toEqual({});
+  });
+
 
   test('Should successfully add new beer to masterBeerList', () => {
     const { name, brand, alcoholContent, price, id } = beerData;
@@ -21,8 +35,8 @@ describe('beerListReducer', () => {
       price: price,
       id: id
     };
-
-       expect(beerListReducer({}, action)).toEqual({
+    
+    expect(beerListReducer({}, action)).toEqual({
       [id] : {
         name: name,
         brand: brand,
@@ -33,9 +47,22 @@ describe('beerListReducer', () => {
     });
   });
 
-
-  test('Should return default state if there is no action type passed into the reducer', () => {
-    expect(beerListReducer({}, { type: null })).toEqual({});
+  test('Should successfully delete a beer', () => {
+    action = {
+      type: 'DELETE_BEER',
+      id: 1
+    };
+    expect(beerListReducer(beerData, action)).toEqual({
+      2: {
+        name: 'Another Beer',
+        brand: 'Pilsner',
+        alcoholContent: '8',
+        price: '$9',
+        id: 2 
+      }
+    });
   });
 
+
+  
 });
