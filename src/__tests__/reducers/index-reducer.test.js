@@ -22,4 +22,18 @@ describe("rootReducer", () => {
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
   });
 
+  test('Check that ADD_BEER action works for beerListReducer and root reducer', () => {
+    const action = {
+      type: 'ADD_BEER',
+      name: 'The Beer',
+      brand: 'Porter',
+      alcoholContent: '5',
+      price: '$5',
+      id: 1 
+    }
+    store.dispatch(action);
+    expect(store.getState().masterBeerList).toEqual(beerListReducer(undefined, action));
+  });
+  
+ 
 });
