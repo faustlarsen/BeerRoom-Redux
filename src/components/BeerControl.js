@@ -10,7 +10,6 @@ class BeerControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false, 
       selectedBeer: null, 
       editing: false
     };
@@ -19,14 +18,15 @@ class BeerControl extends React.Component {
 showFormOnClick = () => { 
   if (this.state.selectedBeer != null) {
     this.setState({
-      formVisibleOnPage: false,
       selectedBeer: null,
       editing: false
     });
   } else {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+    const { dispatch } = this.props;
+    const action = {
+      type: 'TOGGLE_FORM'
+    }
+    dispatch(action);
   }
 }
 
@@ -42,7 +42,10 @@ handleAddingNewBeerToList = (newBeer) => {
     price: price,
   }
   dispatch(action);
-  this.setState({formVisibleOnPage: false});
+  const action2 = {
+    type: 'TOGGLE_FORM'
+  }
+  dispatch(action2);
 }
 
 //details
@@ -121,7 +124,7 @@ else if (this.state.selectedBeer != null) {
     onClickingUpdate = {this.handleEditClick} />;
     buttonText = "Beer List";
   } 
-  else if (this.state.formVisibleOnPage) { 
+  else if (this.props.formVisibleOnPage) { 
     currentlyVisibleState = <NewBeerForm 
     onNewBeerCreation = {this.handleAddingNewBeerToList} />;
     buttonText = "Beer List";
@@ -145,7 +148,8 @@ BeerControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterBeerList: state
+    masterBeerList: state.masterBeerList,
+    formVisibleOnPage: state.formVisibleOnPage
   }
 }
 
