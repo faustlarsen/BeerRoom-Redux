@@ -1,0 +1,17 @@
+.container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+
+body { 
+  background: url(http://res.cloudinary.com/simpleview/image/upload/v1597254866/clients/fortwayne/2020_Breweries_Beers_with_Logos_ERP_6327_web_16x9_55f649bb-97aa-44c4-a558-a72521cd2397.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
