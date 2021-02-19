@@ -139,6 +139,16 @@ render(){
   }
 }
 
-BeerControl = connect()(BeerControl);
+BeerControl.propTypes = {
+  masterBeerList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    masterBeerList: state
+  }
+}
+
+BeerControl = connect(mapStateToProps)(BeerControl);
 
 export default BeerControl;
