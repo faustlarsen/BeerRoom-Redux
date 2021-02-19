@@ -19,9 +19,9 @@ function BeerDetails(props) {
     }
     </div>
     <div className="card-footer">
-      {beer.keg > 0 ? <button class="btn btn-secondary"  onClick={props.onClickingBuy}>Buy</button> : null}
-      <button  class="btn btn-secondary" onClick={() => onClickingDelete(beer.id)}>Delete</button>
-      <button class="btn btn-secondary"  onClick={props.onClickingUpdate}>Update</button>
+      {beer.keg > 0 ? <button className="btn btn-secondary"  onClick={props.onClickingBuy}>Buy</button> : null}
+      <button  className="btn btn-secondary" onClick={() => onClickingDelete(beer.id)}>Delete</button>
+      <button className="btn btn-secondary"  onClick={props.onClickingUpdate}>Update</button>
     </div>
   </React.Fragment>
   );

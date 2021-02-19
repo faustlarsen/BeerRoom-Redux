@@ -5,6 +5,8 @@ import BeerDetails from "./BeerDetails";
 import EditBeerForm from './EditBeerForm';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
+import * as a from './../actions';
+
 
 class BeerControl extends React.Component {
   constructor(props) {
@@ -23,9 +25,7 @@ showFormOnClick = () => {
     });
   } else {
     const { dispatch } = this.props;
-    const action = {
-      type: 'TOGGLE_FORM'
-    }
+    const action = a.toggleForm();
     dispatch(action);
   }
 }
@@ -33,19 +33,9 @@ showFormOnClick = () => {
 //create
 handleAddingNewBeerToList = (newBeer) => {
   const { dispatch } = this.props;
-  const { id, name, brand, alcoholContent, price } = newBeer;
-  const action = {
-    type: 'ADD_BEER',
-    id: id,
-    name: name,
-    brand: brand,
-    alcoholContent: alcoholContent,
-    price: price,
-  }
+  const action = a.addBeer(newBeer);
   dispatch(action);
-  const action2 = {
-    type: 'TOGGLE_FORM'
-  }
+  const action2 = a.toggleForm();
   dispatch(action2);
 }
 
@@ -62,15 +52,7 @@ handleEditClick = () => {
 
 handleEditingBeerInList = (beerToEdit) => {
   const { dispatch } = this.props;
-  const { id, name, brand, alcoholContent, price } = beerToEdit;
-  const action = {
-    type: 'ADD_BEER',
-    id: id,
-    name: name,
-    brand: brand,
-    alcoholContent: alcoholContent,
-    price: price,
-  }
+  const action = a.addBeer(beerToEdit);
   dispatch(action);
   this.setState({
     editing: false,
@@ -81,10 +63,7 @@ handleEditingBeerInList = (beerToEdit) => {
 //delete
 handleDeletingBeer = (id) => {
   const { dispatch } = this.props;
-  const action = {
-    type: 'DELETE_BEER',
-    id: id
-  }
+  const action = a.deleteBeer(id);
   dispatch(action);
   this.setState({selectedBeer: null});
 }

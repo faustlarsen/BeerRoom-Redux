@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 function BeerList(props) {
   return (
     <React.Fragment>
-      <div class="container">
-        <div class="p-4 w-50 mx-auto" >
+      <div className="container">
+        <div className="p-4 w-50 mx-auto" >
         {Object.values(props.beerList).map((beer) =>
-          <div class="col mb-4">
+          <div className="col mb-4">
             <div className = "card shadow-lg text-canter">
               <Beer 
                 whenBeerClicked = {props.onBeerSelection} 
