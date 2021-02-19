@@ -113,28 +113,28 @@ render(){
   } 
 
 else if (this.state.selectedBeer != null) {
-      currentlyVisibleState =
-      <BeerDetails
-        beer = {this.state.selectedBeer}
-        onClickingDelete = {this.handleDeletingBeer}
-        onClickingBuy = {this.handleBuyClick}
-        onClickingUpdate = {this.handleEditClick} />;
-        buttonText = "Beer List";
-    } 
-    else if (this.state.formVisibleOnPage) { 
-      currentlyVisibleState = <NewBeerForm 
-      onNewBeerCreation = {this.handleAddingNewBeerToList} />;
-      buttonText = "Beer List";
-      
-    } else { 
-      currentlyVisibleState = <BeerList beerList={this.props.masterBeerList} onBeerSelection={this.handleChangingSelectedBeer} />;
-     buttonText = "Add Beer";
-    }
-    return (
-      <React.Fragment>
-      {currentlyVisibleState}
-      <button onClick={this.showFormOnClick}>{buttonText}</button>
-      </React.Fragment>
+  currentlyVisibleState =
+  <BeerDetails
+    beer = {this.state.selectedBeer}
+    onClickingDelete = {this.handleDeletingBeer}
+    onClickingBuy = {this.handleBuyClick}
+    onClickingUpdate = {this.handleEditClick} />;
+    buttonText = "Beer List";
+  } 
+  else if (this.state.formVisibleOnPage) { 
+    currentlyVisibleState = <NewBeerForm 
+    onNewBeerCreation = {this.handleAddingNewBeerToList} />;
+    buttonText = "Beer List";
+    
+  } else { 
+    currentlyVisibleState = <BeerList beerList={this.props.masterBeerList} onBeerSelection={this.handleChangingSelectedBeer} />;
+    buttonText = "Add Beer";
+  }
+  return (
+    <React.Fragment>
+    {currentlyVisibleState}
+    <button onClick={this.showFormOnClick}>{buttonText}</button>
+    </React.Fragment>
     );
   }
 }
