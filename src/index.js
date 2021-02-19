@@ -4,7 +4,7 @@ import './index.css';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createStore } from 'redux';
-import rootReducer from './reducers/ticket-list-reducer';
+import rootReducer from './reducers/beer-list-reducer';
 import { Provider } from 'react-redux';
 
 const store = createStore(rootReducer);

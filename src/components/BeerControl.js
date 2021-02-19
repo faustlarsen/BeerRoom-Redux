@@ -11,8 +11,6 @@ class BeerControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false, 
-      createNewBeer: false, 
-      masterBeerList: [], 
       selectedBeer: null, 
       editing: false
     };
@@ -34,11 +32,17 @@ showFormOnClick = () => {
 
 //create
 handleAddingNewBeerToList = (newBeer) => {
-  const newMasterBeerList = this.state.masterBeerList.concat(newBeer);
-  this.setState({
-    masterBeerList: newMasterBeerList,
-    formVisibleOnPage: false
-  });
+  const { dispatch } = this.props;
+  const { id, name, alcoholContent, price } = newBeer;
+  const action = {
+    type: 'ADD_BEER',
+    id: id,
+    name: name,
+    alcoholContent: alcoholContent,
+    price: price,
+  }
+  dispatch(action);
+  this.setState({formVisibleOnPage: false});
 }
 
 //details
@@ -53,23 +57,31 @@ handleEditClick = () => {
 }
 
 handleEditingBeerInList = (beerToEdit) => {
-  const editedMasterBeerList = this.state.masterBeerList
-    .filter(beer => beer.id !== this.state.selectedBeer.id)
-    .concat(beerToEdit);
+  const { dispatch } = this.props;
+  const { id, name, alcoholContent, price } = beerToEdit;
+  const action = {
+    type: 'ADD_BEER',
+    id: id,
+    name: name,
+    alcoholContent: alcoholContent,
+    price: price,
+  }
+  dispatch(action);
   this.setState({
-    masterBeerList: editedMasterBeerList,
     editing: false,
-    selectedBeer: beerToEdit 
+    selectedBeer: null
   });
 }
 
 //delete
 handleDeletingBeer = (id) => {
-  const newMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !== id);
-  this.setState({
-    masterBeerList: newMasterBeerList,
-    selectedBeer: null
-  });
+  const { dispatch } = this.props;
+  const action = {
+    type: 'DELETE_BEER',
+    id: id
+  }
+  dispatch(action);
+  this.setState({selectedBeer: null});
 }
 
 //buy
