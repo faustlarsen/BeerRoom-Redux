@@ -80,8 +80,10 @@ handleBuyClick = (id) => {
   this.setState({
     masterBeerList: editedBeerList,
     editing: false,
+    selectedBeer: beerToBuy
   });
 }
+
 
 render(){
   let buttonText = null;
@@ -118,13 +120,15 @@ render(){
 
 BeerControl.propTypes = {
   masterBeerList: PropTypes.object,
-  formVisibleOnPage: PropTypes.bool
+  formVisibleOnPage: PropTypes.bool,
+  editing: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   return {
     masterBeerList: state.masterBeerList,
-    formVisibleOnPage: state.formVisibleOnPage
+    formVisibleOnPage: state.formVisibleOnPage,
+    editing: state.editing
   }
 }
 

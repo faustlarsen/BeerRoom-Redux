@@ -9,6 +9,11 @@ export const toggleForm = () => ({
   type: c.TOGGLE_FORM
 });
 
+export const editingToggle = () => ({
+  type: c.TOGGLE_EDIT
+});
+
+
 export const addBeer = (beer) => {
   const { name, brand, alcoholContent, price, id } = beer;
   return {
