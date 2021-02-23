@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import * as a from './../actions';
 
-
 class BeerControl extends React.Component {
   constructor(props) {
     super(props);
@@ -68,22 +67,12 @@ handleDeletingBeer = (id) => {
   this.setState({selectedBeer: null});
 }
  
-buy
-handleBuyClick = (id) => {
-  const beerToBuy = this.state.masterBeerList.filter(
-  beer => beer.id === this.state.selectedBeer.id)[0];
-  if (beerToBuy.keg !== 0) {
-    beerToBuy.keg--;
-  }
-  const editedBeerList = this.state.masterBeerList
-    .filter(beer => beer.id !==id);
-  this.setState({
-    masterBeerList: editedBeerList,
-    editing: false,
-    selectedBeer: beerToBuy
-  });
+// buy
+handleBuyClick = () => {
+  let id = this.state.selectedBeer.id
+  const action = a.buyBeer(id)
+  this.props.dispatch(action)
 }
-
 
 render(){
   let buttonText = null;
@@ -97,7 +86,7 @@ render(){
   } else if (this.state.selectedBeer != null) {
   currentlyVisibleState =
   <BeerDetails
-    beer = {this.state.selectedBeer}
+    beerId = {this.state.selectedBeer.id}
     onClickingDelete = {this.handleDeletingBeer}
     onClickingBuy = {this.handleBuyClick}
     onClickingUpdate = {this.handleEditClick} />;

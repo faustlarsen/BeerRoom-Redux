@@ -25,3 +25,10 @@ export const addBeer = (beer) => {
     id: id
   }
 }
+
+export const buyBeer = (beerId) => {
+  return {
+    type: c.BUY_BEER,
+    id: beerId
+  }
+}

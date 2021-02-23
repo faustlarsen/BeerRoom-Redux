@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from 'react-redux';
 
 function BeerDetails(props) {
-  const {beer, onClickingDelete } = props;
+  const {beer, onClickingDelete, onClickingUpdate, onClickingBuy } = props;
 
   return (
   <React.Fragment>
@@ -18,14 +19,13 @@ function BeerDetails(props) {
     }
     </div>
     <div className="card-footer">
-      {beer.keg > 0 ? <button className="btn btn-secondary"  onClick={props.onClickingBuy}>Buy</button> : null}
+      {beer.keg > 0 ? <button className="btn btn-secondary"  onClick={() => onClickingBuy()}>Buy</button> : null}
       <button  className="btn btn-secondary" onClick={() => onClickingDelete(beer.id)}>Delete</button>
-      <button className="btn btn-secondary"  onClick={props.onClickingUpdate}>Update</button>
+      <button  className="btn btn-secondary" onClick={() => onClickingUpdate()}>Update</button>
     </div>
   </React.Fragment>
   );
 }
-
 
 BeerDetails.protoTypes = {
   beer: PropTypes.object,
@@ -33,5 +33,13 @@ BeerDetails.protoTypes = {
   onClickingUpdate: PropTypes.func,
   onClickingBuy: PropTypes.func,
 }
+
+const mapStateToProps = (state, props) => {
+  return {
+    beer: state.masterBeerList[props.beerId]
+  }
+}
+
+BeerDetails = connect(mapStateToProps)(BeerDetails);
 
 export default BeerDetails;
